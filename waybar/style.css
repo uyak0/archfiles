@@ -19,6 +19,7 @@ window#waybar.hidden {
 
 #workspaces {
   background-color: transparent;
+  margin-right: 21px;
 }
 
 #workspaces button {
@@ -56,6 +57,8 @@ window#waybar.hidden {
 #network,
 #clock,
 #custom-notification,
+#custom-spotify,
+.custom-youtube,
 #tray {
   border-radius: 4px;
   margin: 6px 2px;
@@ -136,6 +139,16 @@ window#waybar.hidden {
   margin-right: 25px;
 }
 
+#custom-spotify {
+  color:#cdd6f4;
+  border-radius: 50px;
+}
+
+.custom-youtube {
+  color:#f9e2af;
+  border-radius: 50px;
+  padding: 0 15px;
+}
 
 tooltip {
   border-radius: 8px;

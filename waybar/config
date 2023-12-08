@@ -9,7 +9,9 @@
         "hyprland/workspaces"
     ],
     "modules-center": [
-        "clock"
+        "custom/youtube-music",
+        "clock",
+        "custom/spotify"
     ],
     "modules-right": [
         "tray",
@@ -17,12 +19,12 @@
         "network",
         "pulseaudio",
         "battery",
-        "custom/notification"
+        "custom/notification",
+	    "custom/power"
     ],
     "wlr/taskbar": {
         "format": "{icon}",
-        "on-click": "activate",
-        "on-click-right": "fullscreen",
+        "on-click": "minimize-raise",
         "icon-theme": "WhiteSur",
         "icon-size": 25,
         "tooltip-format": "{title}"
@@ -58,6 +60,7 @@
         "max-length": 10
     },
     "tray": {
+        "icon-size": 20,
         "spacing": 10
     },
     "clock": {
@@ -91,6 +94,7 @@
             "default": ["󰖀","󰕾",""]
         },
         "on-click": "pamixer -t",
+	    "on-click-right": "pavucontrol",
         "scroll-step": 1
     },
     "custom/logo": {
@@ -157,5 +161,21 @@
         "on-click": "sleep 0.1 && swaync-client -t -sw",
         "on-click-right": "sleep 0.1 && swaync-client -d -sw",
         "escape": true
+    },
+    "custom/spotify": {
+        "format": "{} ",
+        "exec": "~/.config/waybar/scripts/spotify.sh",
+        "return-type": "json",
+        "on-click": "hyprctl --batch 'dispatch exec spotify ; dispatch togglespecialworkspace spotify'",
+        "on-scroll-up": "playerctl -p spotify next",
+        "on-scroll-down": "playerctl -p spotify previous",
+        "max-length": 25
+    },
+    "custom/youtube-music": {
+        "format": " {}",
+        "exec": "~/.config/waybar/scripts/youtube-music.sh",
+        "return-type": "json",
+        "on-click": "hyprctl --batch 'dispatch exec youtube-music ; dispatch togglespecialworkspace youtubemusic'",
+        "max-length":  25
     }
 }
