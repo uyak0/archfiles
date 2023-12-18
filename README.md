@@ -11,9 +11,5 @@ Hello. This is my first Arch rice. Most of the configs are taken from default an
 # Installation
 Move each config file to respective directories under `~/.config/` e.g. waybar config in  `~/.config/waybar/`. May refer to each documentation for more specific instructions.
 
-# Screenshots
-![screenshot1](https://github.com/uyak0/archfiles/assets/139725403/8399cbee-07d0-4ee1-82ac-25fa7afabe98)
-![screenshot2](https://github.com/uyak0/archfiles/assets/139725403/9e113a4a-d5b6-475a-9659-039fdb8db224)
-
 # Notes
 - all shortctus are available in `hypr/hpyrland.conf`
