@@ -7,7 +7,8 @@
 }
 
 window#waybar {
-  background-color: #181825;
+  background: transparent;
+  /* background-color: #181825; */
   transition-property: background-color;
   transition-duration: 0.5s;
   border-radius: 50px;
@@ -16,6 +17,27 @@ window#waybar {
 window#waybar.hidden {
   opacity: 0.5;
 }
+
+/* MODULE GROUPS */
+.modules-center {
+  background-color:#181825;
+  border-radius: 50px;
+  padding: 0 7.5px;
+}
+
+.modules-left,
+.modules-right {
+  background-color:#181825;
+  border-radius: 10px;
+}
+
+.modules-left {
+  padding-right: 10px;
+}
+.modules-right {
+  padding: 0 10px;
+}
+/* ---------- */
 
 #workspaces {
   background-color: transparent;
@@ -50,7 +72,6 @@ window#waybar.hidden {
 }
 
 #memory,
-#custom-power,
 #battery,
 #backlight,
 #pulseaudio,
@@ -59,6 +80,7 @@ window#waybar.hidden {
 #custom-notification,
 #custom-spotify,
 .custom-youtube,
+#window,
 #tray {
   border-radius: 4px;
   margin: 6px 2px;
@@ -67,13 +89,14 @@ window#waybar.hidden {
   color: #181825;
 }
 
-#custom-power {
-  margin-right: 6px;
+#window {
+  border-bottom:#f9e2af groove 1px;
+  color:#f9e2af;
 }
 
 #custom-logo {
   padding-right: 7px;
-  padding-left: 7px;
+  padding-left: 2px;
   margin-left: 5px;
   font-size: 15px;
   border-radius: 8px 0px 0px 8px;
@@ -123,15 +146,20 @@ window#waybar.hidden {
 
 #clock {
   font-family: JetBrainsMono Nerd Font;
-  background-color: #cba6f7;
+  font-weight: 900;
+  background: transparent;
+  color:#94e2d5;
   border-radius: 50px;
   padding: 0px 15px;
 }
 
 #custom-power {
-  background-color: #f2cdcd;
-  border-radius: 50px;
-  margin-right: 10px;
+  font-size: larger;
+  font-weight: bold;
+  color:aliceblue;
+  margin-right: 15px;
+
+  text-shadow: 1px 1px 5px #fff
 }
 
 #custom-notification {
