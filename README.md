@@ -16,5 +16,3 @@ Move each config file to respective directories under `~/.config/` e.g. waybar c
 # Notes
 - all shortctus are available in `hypr/hpyrland.conf`
 
-# Todo
-- [ ] Bash Script to set up everything automatically
