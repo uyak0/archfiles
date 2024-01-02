@@ -11,10 +11,14 @@ Note: rofi is not included in the repo because i took it 1:1 from the original
 - **Application Launcher:** [wofi](https://sr.ht/~scoopta/wofi/)/[rofi](https://github.com/davatorium/rofi)
 
 # Installation
-Move each config file to respective directories under `~/.config/` e.g. waybar config in  `~/.config/waybar/`. May refer to each documentation for more specific instructions.
+Run these commands:
+```
+git clone https://github.com/uyak0/dotfiles
+cd dotfiles
+chmod +x installation.sh
+./installation.sh
+``` 
 
 # Notes
 - all shortctus are available in `hypr/hpyrland.conf`
 
-# Todo
-- [ ] Bash Script to set up everything automatically
