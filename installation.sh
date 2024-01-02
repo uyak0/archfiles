@@ -1,14 +1,18 @@
 #!/bin/bash
 
+# Color
+CYAN = "\e[96m"
+CLEAR = "\e[0m"
+
 # Dependecies
-echo "Installing dependencies with yay..."
+echo -e "${CYAN}Installing dependencies with yay...${CLEAR}"
 yay -S neovim rofi swaync waybar kitty hyprland
 
 # Config dotfiles
-echo "Cloning dotfiles repos..."
+echo -e "${CYAN}Cloning dotfiles repos...${CLEAR}"
 git clone git@github.com:uyak0/dotfiles.git $HOME/dotfiles
 
-echo "Cloning rofi config..."
+echo -e "${CYAN}Cloning rofi config...${CLEAR}"
 git clone https://github.com/adi1090x/rofi.git $HOME/rofi
 
 cd $HOME/rofi
@@ -19,52 +23,52 @@ cd $HOME
 
 # waybar
 if [ ! -d "$HOME/.config/waybar" ]; then
-    echo "waybar config directory doesn't exists, making it now..."
+    echo -e"${CYAN}waybar config directory doesn't exists, making it now..."
     mkdir $HOME/.config/waybar
-    echo "waybar config directory made! Installing waybar configurations..."    
+    echo -e"${CYAN}waybar config directory made! Installing waybar configurations..."    
     cp -a $HOME/dotfiles/waybar/. $HOME/.config/waybar
-    echo "waybar configuration installed!"
+    echo -e"${CYAN}waybar configuration installed!"
 else 
-    echo "waybar config directory already exists, installing waybar configurations..."    
+    echo -e"${CYAN}waybar config directory already exists, installing waybar configurations..."    
     cp -a $HOME/dotfiles/waybar/. $HOME/.config/waybar
-    echo "waybar configuration installed!"
+    echo -e"${CYAN}waybar configuration installed!"
 fi
 
 # Hyprland config
 if [ ! -d "$HOME/.config/hypr" ]; then
-    echo "hyprland config directory doesn't exists, making it now..."
+    echo -e"${CYAN}hyprland config directory doesn't exists, making it now..."
     mkdir $HOME/.config/hypr
-    echo "hyprland config directory made! Installing hyprland configurations..."    
+    echo -e"${CYAN}hyprland config directory made! Installing hyprland configurations..."    
     cp -a $HOME/dotfiles/hypr/. .config/hypr
-    echo "hyprland configuration installed!"
+    echo -e"${CYAN}hyprland configuration installed!"
 else 
-    echo "hypr config directory already exists, installing hyprland configurations..."
+    echo -e"${CYAN}hypr config directory already exists, installing hyprland configurations..."
     cp -a $HOME/dotfiles/hypr/. $HOME/.config/hypr
-    echo "hyprland configuration installed!"
+    echo -e"${CYAN}hyprland configuration installed!"
 fi
 
 # Kitty config
 if [ ! -d "$HOME/.config/kitty" ]; then
-    echo "kitty config directory doesn't exists, making it now..."
+    echo -e"${CYAN}kitty config directory doesn't exists, making it now..."
     mkdir $HOME/.config/kitty
-    echo "kitty config directory made! Installing kitty configurations..."    
+    echo -e"${CYAN}kitty config directory made! Installing kitty configurations..."    
     cp -a $HOME/dotfiles/.kitty .config/kitty
-    echo "kitty configuration installed!"
+    echo -e"${CYAN}kitty configuration installed!"
 else 
-    echo "kitty config directory already exists, installing kitty configurations..."
+    echo -e"${CYAN}kitty config directory already exists, installing kitty configurations..."
     cp -a $HOME/dotfiles/.kitty $HOME/.config/kitty
-    echo "kitty configuration installed!"
+    echo -e"${CYAN}kitty configuration installed!"
 fi
 
 # swaync config
 if [ ! -d "$HOME/.config/swaync" ]; then
-    echo "swaync config directory doesn't exists, making it now..."
+    echo -e"${CYAN}swaync config directory doesn't exists, making it now..."
     mkdir $HOME/.config/swaync
-    echo "swaync config directory made! Installing swaync configurations..."    
+    echo -e"${CYAN}swaync config directory made! Installing swaync configurations..."    
     cp -a $HOME/dotfiles/.swaync .config/swaync
-    echo "swaync configuration installed!"
+    echo -e"${CYAN}swaync configuration installed!"
 else 
-    echo "swaync config directory already exists, installing swaync configurations..."
+    echo -e"${CYAN}swaync config directory already exists, installing swaync configurations..."
     cp -a $HOME/dotfiles/.swaync $HOME/.config/swaync
-    echo "swaync configuration installed!"
+    echo -e"${CYAN}swaync configuration installed!"
 fi
