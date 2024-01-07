@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Color
-CYAN = "\e[96m"
-CLEAR = "\e[0m"
+CYAN="\e[34m"
+CLEAR="\e[0m"
 
 # Installing yay
 echo -e "$CYAN Installing yay... $CLEAR"
@@ -13,7 +13,16 @@ makepkg -si
 
 # Dependecies
 echo -e "$CYAN Installing dependencies with yay...$CLEAR"
-yay -S neovim rofi swaync waybar kitty hyprland
+yay -S neovim rofi swaync waybar kitty zsh
+
+# oh-my-zsh and zsh theme (typewritten)
+echo -e "$CYAN Installing oh-my-zsh..."
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+echo -e "$CYAN Installing zsh theme..."
+git clone https://github.com/reobin/typewritten.git $ZSH_CUSTOM/themes/typewritten
+ln -s "$ZSH_CUSTOM/themes/typewritten/typewritten.zsh-theme" "$ZSH_CUSTOM/themes/typewritten.zsh-theme"
+ln -s "$ZSH_CUSTOM/themes/typewritten/async.zsh" "$ZSH_CUSTOM/themes/async"
 
 # Config dotfiles
 echo -e "$CYAN Cloning dotfiles repos...$CLEAR"
@@ -27,6 +36,10 @@ chmod +x $HOME/rofi/setup.sh
 $HOME/rofi/setup.sh
 
 cd $HOME
+
+# .zshrc
+echo -e "$CYAN Copying .zshrc from repo..."
+cp $HOME/dotfiles/.zshrc $HOME/.zshrc
 
 # waybar
 if [ ! -d "$HOME/.config/waybar" ]; then
