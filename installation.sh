@@ -6,7 +6,7 @@ CLEAR="\e[0m"
 
 # Installing yay
 echo -e "$CYAN Installing yay... $CLEAR"
-pacman -S --needed git base-devel
+sudo pacman -S --needed git base-devel
 git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
@@ -43,52 +43,53 @@ cp $HOME/dotfiles/.zshrc $HOME/.zshrc
 
 # waybar
 if [ ! -d "$HOME/.config/waybar" ]; then
-    echo -e"$CYAN waybar config directory doesn't exists, making it now..."
+    echo -e "$CYAN waybar config directory doesn't exists, making it now..."
     mkdir $HOME/.config/waybar
-    echo -e"$CYAN waybar config directory made! Installing waybar configurations..."    
+    echo -e "$CYAN waybar config directory made! Installing waybar configurations..."    
     cp -a $HOME/dotfiles/waybar/. $HOME/.config/waybar
-    echo -e"$CYAN waybar configuration installed!"
+    chmod +x $HOME/.config/waybar/scripts/spotify.sh $HOME/.config/waybar/scripts/youtube-music.sh
+    echo -e "$CYAN waybar configuration installed!"
 else 
-    echo -e"$CYAN waybar config directory already exists, installing waybar configurations..."    
+    echo -e "$CYAN waybar config directory already exists, installing waybar configurations..."    
     cp -a $HOME/dotfiles/waybar/. $HOME/.config/waybar
-    echo -e"$CYAN waybar configuration installed!"
+    echo -e "$CYAN waybar configuration installed!"
 fi
 
 # Hyprland config
 if [ ! -d "$HOME/.config/hypr" ]; then
-    echo -e"$CYAN hyprland config directory doesn't exists, making it now..."
+    echo -e "$CYAN hyprland config directory doesn't exists, making it now..."
     mkdir $HOME/.config/hypr
-    echo -e"$CYAN hyprland config directory made! Installing hyprland configurations..."    
+    echo -e "$CYAN hyprland config directory made! Installing hyprland configurations..."    
     cp -a $HOME/dotfiles/hypr/. .config/hypr
-    echo -e"$CYAN hyprland configuration installed!"
+    echo -e "$CYAN hyprland configuration installed!"
 else 
-    echo -e"$CYAN hypr config directory already exists, installing hyprland configurations..."
+    echo -e "$CYAN hypr config directory already exists, installing hyprland configurations..."
     cp -a $HOME/dotfiles/hypr/. $HOME/.config/hypr
-    echo -e"$CYAN hyprland configuration installed!"
+    echo -e "$CYAN hyprland configuration installed!"
 fi
 
 # Kitty config
 if [ ! -d "$HOME/.config/kitty" ]; then
-    echo -e"$CYAN kitty config directory doesn't exists, making it now..."
+    echo -e "$CYAN kitty config directory doesn't exists, making it now..."
     mkdir $HOME/.config/kitty
-    echo -e"$CYAN kitty config directory made! Installing kitty configurations..."    
+    echo -e "$CYAN kitty config directory made! Installing kitty configurations..."    
     cp -a $HOME/dotfiles/.kitty .config/kitty
-    echo -e"$CYAN kitty configuration installed!"
+    echo -e "$CYAN kitty configuration installed!"
 else 
-    echo -e"$CYAN kitty config directory already exists, installing kitty configurations..."
+    echo -e "$CYAN kitty config directory already exists, installing kitty configurations..."
     cp -a $HOME/dotfiles/.kitty $HOME/.config/kitty
-    echo -e"$CYAN kitty configuration installed!"
+    echo -e "$CYAN kitty configuration installed!"
 fi
 
 # swaync config
 if [ ! -d "$HOME/.config/swaync" ]; then
-    echo -e"$CYAN swaync config directory doesn't exists, making it now..."
+    echo -e "$CYAN swaync config directory doesn't exists, making it now..."
     mkdir $HOME/.config/swaync
-    echo -e"$CYAN swaync config directory made! Installing swaync configurations..."    
+    echo -e "$CYAN swaync config directory made! Installing swaync configurations..."    
     cp -a $HOME/dotfiles/.swaync .config/swaync
-    echo -e"$CYAN swaync configuration installed!"
+    echo -e "$CYAN swaync configuration installed!"
 else 
-    echo -e"$CYAN swaync config directory already exists, installing swaync configurations..."
+    echo -e "$CYAN swaync config directory already exists, installing swaync configurations..."
     cp -a $HOME/dotfiles/.swaync $HOME/.config/swaync
-    echo -e"$CYAN swaync configuration installed!"
+    echo -e "$CYAN swaync configuration installed!"
 fi
