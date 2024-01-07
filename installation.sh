@@ -24,6 +24,11 @@ git clone https://github.com/reobin/typewritten.git $ZSH_CUSTOM/themes/typewritt
 ln -s "$ZSH_CUSTOM/themes/typewritten/typewritten.zsh-theme" "$ZSH_CUSTOM/themes/typewritten.zsh-theme"
 ln -s "$ZSH_CUSTOM/themes/typewritten/async.zsh" "$ZSH_CUSTOM/themes/async"
 
+# zsh plugins
+echo -e "$CYAN Installing zsh plugins..."
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
 # Config dotfiles
 echo -e "$CYAN Cloning dotfiles repos...$CLEAR"
 git clone git@github.com:uyak0/dotfiles.git $HOME/dotfiles
@@ -31,11 +36,8 @@ git clone git@github.com:uyak0/dotfiles.git $HOME/dotfiles
 echo -e "$CYAN Cloning rofi config...$CLEAR"
 git clone https://github.com/adi1090x/rofi.git $HOME/rofi
 
-cd $HOME/rofi
 chmod +x $HOME/rofi/setup.sh
 $HOME/rofi/setup.sh
-
-cd $HOME
 
 # .zshrc
 echo -e "$CYAN Copying .zshrc from repo..."
