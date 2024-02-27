@@ -76,9 +76,6 @@ vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
 
-  -- GitHub Copilot
-  'github/copilot.vim',
-
   -- Discord RPC
   'andweeb/presence.nvim',
 
@@ -97,9 +94,30 @@ require('lazy').setup({
     dependencies = {
       "nvim-tree/nvim-web-devicons",
     },
+    keys = {
+      { "<leader>nt",":NvimTreeToggle<cr>" }
+    },
     config = function()
       require("nvim-tree").setup {}
     end,
+  },
+
+  {
+    "adalessa/laravel.nvim",
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+      "tpope/vim-dotenv",
+      "MunifTanjim/nui.nvim",
+      "nvimtools/none-ls.nvim",
+    },
+    cmd = { "Sail", "Artisan", "Composer", "Npm", "Yarn", "Laravel" },
+    keys = {
+      { "<leader>la", ":Laravel artisan<cr>" },
+      { "<leader>lr", ":Laravel routes<cr>" },
+      { "<leader>lm", ":Laravel related<cr>" },
+    },
+    event = { "VeryLazy" },
+    config = true,
   },
 
   -- NOTE: This is where your plugins related to LSP can be installed.
