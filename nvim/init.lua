@@ -333,9 +333,6 @@ require('lazy').setup({
 -- Loads Kanagawa Theme
 vim.cmd("colorscheme kanagawa")
 
--- Loads Copilot
-vim.cmd("Copilot setup")
-
 -- [[ Setting options ]]
 -- See `:help vim.o`
 -- NOTE: You can change these options as you wish!
