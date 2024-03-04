@@ -29,17 +29,6 @@ vim.opt.rtp:prepend(lazypath)
 
 -- [[ Configure plugins ]]
 require('lazy').setup({
-  -- TailwindCSS color preview 
-  {
-    "roobert/tailwindcss-colorizer-cmp.nvim",
-    -- optionally, override the default options:
-    config = function()
-      require("tailwindcss-colorizer-cmp").setup({
-        color_square_width = 2,
-      })
-    end
-  },
-
   -- Auto pair
   {
     'windwp/nvim-autopairs',
