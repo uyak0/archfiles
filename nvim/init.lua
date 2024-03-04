@@ -29,6 +29,15 @@ vim.opt.rtp:prepend(lazypath)
 
 -- [[ Configure plugins ]]
 require('lazy').setup({
+  -- Auto pair
+  {
+    'windwp/nvim-autopairs',
+    event = "InsertEnter",
+    config = true
+    -- use opts = {} for passing setup options
+    -- this is equalent to setup({}) function
+  },
+
   -- GitHub Copilot
   'github/copilot.vim',
 
@@ -602,7 +611,7 @@ local servers = {
   -- tsserver = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
   phpactor = {},
-  vuels = {},
+  volar = {},
 
   lua_ls = {
     Lua = {
