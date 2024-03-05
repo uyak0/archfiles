@@ -22,7 +22,6 @@
         "pulseaudio",
         "battery",
         "custom/notification",
-	    "custom/power"
     ],
     "hyprland/window": {
         "format": "{initialTitle}",  

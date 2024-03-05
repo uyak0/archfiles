@@ -90,8 +90,8 @@ window#waybar.hidden {
 }
 
 #window {
-  border-bottom:#f9e2af groove 1px;
-  color:#f9e2af;
+  background: transparent;
+  color:#94e2d5;
 }
 
 #custom-logo {
@@ -104,10 +104,14 @@ window#waybar.hidden {
 }
 
 #memory {
-  background-color: #fab387;
+  background-color: transparent;
+  border-left: #94e2d5;
+  color: #94e2d5;
 }
 #battery {
-  background-color: #f38ba8;  
+  background-color: transparent;  
+  border-left: #94e2d5;
+  color: #94e2d5;
 }
 @keyframes blink {
   to {
@@ -136,11 +140,15 @@ window#waybar.hidden {
 }
 
 #pulseaudio {
-  background-color: #f9e2af;
+  background-color: transparent;
+  border-left: #94e2d5;
+  color: #94e2d5;
 }
 
 #network {
-  background-color: #94e2d5;
+  background-color: transparent;
+  border-left: #94e2d5;
+  color: #94e2d5;
   padding-right: 17px;
 }
 
