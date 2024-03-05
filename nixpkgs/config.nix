@@ -1,4 +1,5 @@
 {
+  allowUnfree = true;
   packageOverrides = pkgs: with pkgs; {
     myPackages = pkgs.buildEnv {
       name = "my-packages";
@@ -9,9 +10,10 @@
 	neovim
 	git
 	php83Packages.composer
+	ripgrep
+	ripgrep-all
       ];
       pathsToLink = [ "/share" "/bin" ];
     };
   };
-  allowUnfree = true;
 }
