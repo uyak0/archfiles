@@ -360,6 +360,8 @@ vim.o.completeopt = 'menuone,noselect'
 vim.o.termguicolors = true
 
 -- [[ Basic Keymaps ]]
+-- Search and replace 
+vim.keymap.set('n', '<leader>H', ':%s//c<Left><Left>', { silent = true })
 
 -- Enter new line without leaving normal mode
 vim.keymap.set('n', '<C-o>', 'o<ESC>', { silent = true })
