@@ -361,7 +361,7 @@ vim.o.termguicolors = true
 
 -- [[ Basic Keymaps ]]
 -- Search and replace 
-vim.keymap.set('n', '<leader>H', ':%s//c<Left><Left>', { silent = true })
+vim.keymap.set('n', '<leader>H', ':%s//c<Left><Left>', { desc = 'Search and Replace', silent = true })
 
 -- Enter new line without leaving normal mode
 vim.keymap.set('n', '<C-o>', 'o<ESC>', { silent = true })
