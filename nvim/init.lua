@@ -29,6 +29,10 @@ vim.opt.rtp:prepend(lazypath)
 
 -- [[ Configure plugins ]]
 require('lazy').setup({
+
+  -- Surround.vim
+  'tpope/vim-surround',
+
   -- Colorizer
   {
     'NvChad/nvim-colorizer.lua',
@@ -44,6 +48,7 @@ require('lazy').setup({
       }
     end,
   },
+
   -- Auto pair
   {
     'windwp/nvim-autopairs',
@@ -69,7 +74,7 @@ require('lazy').setup({
   -- Kanagawa Theme
   'rebelot/kanagawa.nvim',
   
-  {
+  { -- NvimTree 
     "nvim-tree/nvim-tree.lua",
     dependencies = {
       "nvim-tree/nvim-web-devicons",
@@ -355,6 +360,8 @@ vim.o.completeopt = 'menuone,noselect'
 vim.o.termguicolors = true
 
 -- [[ Basic Keymaps ]]
+-- Search and replace 
+vim.keymap.set('n', '<leader>H', ':%s//c<Left><Left>', { silent = true })
 
 -- Enter new line without leaving normal mode
 vim.keymap.set('n', '<C-o>', 'o<ESC>', { silent = true })
