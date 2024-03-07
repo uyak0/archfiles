@@ -114,7 +114,7 @@
         "scroll-step": 1
     },
     "custom/logo": {
-        "format": "  ",
+        "format": "  ",
         "tooltip": false
     },
     "battery": {
