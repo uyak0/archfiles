@@ -132,7 +132,7 @@ window#waybar.hidden {
   animation-direction: alternate;
 }
 #battery.charging {
-  background-color: #a6e3a1;
+  background-color: transparent;
 }
 
 #backlight {
