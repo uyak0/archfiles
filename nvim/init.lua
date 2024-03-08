@@ -102,7 +102,13 @@ require('lazy').setup({
       { "<leader>lm", ":Laravel related<cr>" },
     },
     event = { "VeryLazy" },
-    config = true,
+    config = function()
+      require("laravel").setup {
+        commands_options = {
+          ["migrate:fresh"] = { options = { "--seed" } }
+        },
+      }
+    end,
   },
 
   -- NOTE: This is where your plugins related to LSP can be installed.
