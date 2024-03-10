@@ -5,8 +5,62 @@
 { config, pkgs, ... }:
   
 {
-  # iwd
-  networking.wireless.iwd.enable = true;
+  imports =
+  [ # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    <home-manager/nixos>
+  ];
+
+  # Home Manager
+  home-manager.users.uyako= {
+    /* The home.stateVersion option does not have a default and must be set */
+    home.stateVersion = "23.11";
+
+    programs.zsh = {
+      enable = true;
+      enableCompletion = true;
+      enableAutosuggestions = true;
+      syntaxHighlighting.enable = true;
+
+      oh-my-zsh = {
+	enable = true;
+	theme = "wedisagree";
+	plugins = [
+	  "git"
+	  "zoxide"
+	];
+      };
+
+      shellAliases = {
+	nix-config = "sudo -E nvim /etc/nixos/configuration.nix";
+	nix-rebuild = "sudo nixos-rebuild switch";
+	vi = "nvim";
+	vuedev = "cd ~/Projects/e-quiz-web-app/vue-frontend && npm i && npm run dev";
+	phpserve = "cd ~/Projects/e-quiz-web-app/laravel-backend && php artisan serve";
+	ls = "eza";
+	lg = "lazygit";
+      };
+    };
+
+    programs.git = {
+      enable = true;
+      userName  = "uyak0";
+      userEmail = "milkycoffeethings@gmail.com";
+    };
+
+    home.pointerCursor ={
+      name = "Adwaita";
+      gtk.enable = true;
+      size = 32;
+      package = pkgs.gnome.adwaita-icon-theme;
+    };
+
+    home.packages = with pkgs; [
+      zoxide
+      zsh-you-should-use
+      eza
+    ];
+  };
 
   # Enabling MariaDB
   services.mysql.package = pkgs.mariadb;
@@ -31,11 +85,6 @@
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
   # cursor size
   environment.variables.XCURSOR_SIZE = "32";
-
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -137,6 +186,9 @@
 	php83Packages.composer
 	waybar
 	hyprpaper
+	unzip
+	gnome.adwaita-icon-theme
+	clang-tools
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
