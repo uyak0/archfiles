@@ -30,24 +30,15 @@ vim.opt.rtp:prepend(lazypath)
 -- [[ Configure plugins ]]
 require('lazy').setup({
 
+  require('custom/plugins/colorizer'),
+  require('custom/plugins/themes'),
+  require('custom/plugins/nvim-tree'),
+  require('custom/plugins/laravel-nvim'),
+  require('custom/plugins/lualine'),
+  require('keybindings'),
+
   -- Surround.vim
   'tpope/vim-surround',
-
-  -- Colorizer
-  {
-    'NvChad/nvim-colorizer.lua',
-    config = function()
-      require('colorizer').setup {
-        filetypes = { "*" },
-        user_default_options ={
-          tailwind = true,
-          names = true,
-          css = true,
-          mode = "foreground",
-        }
-      }
-    end,
-  },
 
   -- Auto pair
   {
@@ -70,46 +61,6 @@ require('lazy').setup({
 
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
-  
-  -- Kanagawa Theme
-  'rebelot/kanagawa.nvim',
-  
-  { -- NvimTree 
-    "nvim-tree/nvim-tree.lua",
-    dependencies = {
-      "nvim-tree/nvim-web-devicons",
-    },
-    keys = {
-      { "<leader>nt",":NvimTreeToggle<cr>" }
-    },
-    config = function()
-      require("nvim-tree").setup {}
-    end,
-  },
-
-  {
-    "adalessa/laravel.nvim",
-    dependencies = {
-      "nvim-telescope/telescope.nvim",
-      "tpope/vim-dotenv",
-      "MunifTanjim/nui.nvim",
-      "nvimtools/none-ls.nvim",
-    },
-    cmd = { "Sail", "Artisan", "Composer", "Npm", "Yarn", "Laravel" },
-    keys = {
-      { "<leader>la", ":Laravel artisan<cr>" },
-      { "<leader>lr", ":Laravel routes<cr>" },
-      { "<leader>lm", ":Laravel related<cr>" },
-    },
-    event = { "VeryLazy" },
-    config = function()
-      require("laravel").setup {
-        commands_options = {
-          ["migrate:fresh"] = { options = { "--seed" } }
-        },
-      }
-    end,
-  },
 
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
@@ -236,35 +187,6 @@ require('lazy').setup({
   },
 
   {
-    -- Theme inspired by Atom
-    -- 'navarasu/onedark.nvim',
-    -- priority = 1000,
-    -- lazy = false,
-    -- config = function()
-    --   require('onedark').setup {
-    --     -- Set a style preset. 'dark' is default.
-    --     style = 'dark', -- dark, darker, cool, deep, warm, warmer, light
-    --   }
-    --   require('onedark').load()
-    -- end,
-   
-  },
-
-  {
-    -- Set lualine as statusline
-    'nvim-lualine/lualine.nvim',
-    -- See `:help lualine.txt`
-    opts = {
-      options = {
-        icons_enabled = false,
-        theme = 'auto',
-        component_separators = '|',
-        section_separators = '',
-      },
-    },
-  },
-
-  {
     -- Add indentation guides even on blank lines
     'lukas-reineke/indent-blankline.nvim',
     -- Enable `lukas-reineke/indent-blankline.nvim`
@@ -321,8 +243,8 @@ require('lazy').setup({
   -- { import = 'custom.plugins' },
 }, {})
 
--- Loads Kanagawa Theme
-vim.cmd("colorscheme kanagawa")
+-- Load theme
+vim.cmd[[colorscheme tokyonight-night]]
 
 -- [[ Setting options ]]
 -- See `:help vim.o`
@@ -364,27 +286,6 @@ vim.o.completeopt = 'menuone,noselect'
 
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
-
--- [[ Basic Keymaps ]]
--- Search and replace 
-vim.keymap.set('n', '<leader>H', ':%s//c<Left><Left>', { desc = 'Search and Replace', silent = true })
-
--- Enter new line without leaving normal mode
-vim.keymap.set('n', '<C-o>', 'o<ESC>', { silent = true })
-
--- Keymaps for better default experience
--- See `:help vim.keymap.set()`
-vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
-
--- Remap for dealing with word wrap
-vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
-
--- Diagnostic keymaps
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
