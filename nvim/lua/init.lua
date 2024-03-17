@@ -11,5 +11,7 @@ return {
   require('plugins.indent-blankline'),
   require('plugins.gitsigns'),
   require('plugins.nvim-treesitter'),
+  require('plugins.copilot'),
+  require('plugins.autotag'),
   require('keybindings'),
 }

@@ -11,9 +11,6 @@ return {
     -- this is equalent to setup({}) function
   },
 
-  -- GitHub Copilot
-  'github/copilot.vim',
-
   -- Discord RPC
   'andweeb/presence.nvim',
 
