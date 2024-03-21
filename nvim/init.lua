@@ -11,6 +11,9 @@ vim.g.loaded_netrwPlugin = 1
 -- Enable Relative Line Numbers 
 vim.wo.relativenumber = true
 
+-- Highlight current line
+vim.wo.cursorline = true
+
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    https://github.com/folke/lazy.nvim
 --    `:help lazy.nvim.txt` for more info
