@@ -6,7 +6,6 @@
       paths = [
       	nodejs_21
 	php
-	vscode
 	neovim
 	git
 	php83Packages.composer
