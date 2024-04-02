@@ -5,7 +5,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- setting block cursor for insert mode
-vim.opt.guicursor = "" 
+vim.opt.guicursor = "n-v-c-i:block,i:block-blinkwait175-blinkoff150-blinkon175"
 
 -- Disable Netrw in favor of nvimTree
 vim.g.loaded_netrw = 1
