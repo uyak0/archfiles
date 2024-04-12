@@ -342,10 +342,10 @@ local servers = {
   tsserver = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
   phpactor = {},
-  vuels = {},
-  -- volar = {
-  --   filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json'},
-  -- },
+  eslint = {},
+  volar = {
+    filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json'},
+  },
 
 
   lua_ls = {
@@ -374,13 +374,36 @@ mason_lspconfig.setup {
 
 mason_lspconfig.setup_handlers {
   function(server_name)
-    require('lspconfig')[server_name].setup {
-      capabilities = capabilities,
-      on_attach = on_attach,
-      settings = servers[server_name],
-      filetypes = (servers[server_name] or {}).filetypes,
-    }
-  end,
+    if server_name == 'volar' then
+      require('lspconfig').tsserver.setup {
+        init_options = {
+          plugins = {
+            {
+              name = '@vue/typescript-plugin',
+              location = '/path/to/@vue/language-server',
+              languages = { 'vue' },
+            },
+          },
+        },
+      }
+
+      require('lspconfig').volar.setup {
+        init_options = {
+          vue = {
+            hybridMode = false,
+          },
+        },
+      }
+
+    else
+      require('lspconfig')[server_name].setup {
+        capabilities = capabilities,
+        on_attach = on_attach,
+        settings = servers[server_name],
+        filetypes = (servers[server_name] or {}).filetypes,
+      }
+    end
+  end
 }
 
 -- [[ Configure nvim-cmp ]]
