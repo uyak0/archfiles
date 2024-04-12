@@ -41,7 +41,7 @@ require('lazy').setup({
 }, {})
 
 -- Load theme
-vim.cmd[[colorscheme tokyonight-night]]
+vim.cmd[[colorscheme kanagawa]]
 
 -- [[ Setting options ]]
 -- See `:help vim.o`
@@ -333,15 +333,20 @@ require('mason-lspconfig').setup()
 --
 --  If you want to override the default filetypes that your language server will attach to you can
 --  define the property 'filetypes' to the map in question.
+
 local servers = {
   clangd = {},
   -- gopls = {},
   -- pyright = {},
   -- rust_analyzer = {},
-  -- tsserver = {},
+  tsserver = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
   phpactor = {},
-  volar = {},
+  vuels = {},
+  -- volar = {
+  --   filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json'},
+  -- },
+
 
   lua_ls = {
     Lua = {

@@ -1,6 +1,6 @@
 return {
   -- Kanagawa Theme
-  -- 'rebelot/kanagawa.nvim',
+  'rebelot/kanagawa.nvim',
 
   -- TokyoNight Theme
   {
