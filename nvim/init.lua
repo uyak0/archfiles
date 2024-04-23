@@ -35,6 +35,8 @@ vim.opt.rtp:prepend(lazypath)
 
 -- [[ Configure plugins ]]
 require('lazy').setup({
+
+  require('plugins.markdown'),
   require('plugins.colorizer'),
   require('plugins.themes'),
   require('plugins.nvim-tree'),
@@ -50,6 +52,7 @@ require('lazy').setup({
   require('plugins.copilot'),
   require('plugins.autotag'),
   require('keybindings'),
+
 }, {})
 
 -- Load theme
