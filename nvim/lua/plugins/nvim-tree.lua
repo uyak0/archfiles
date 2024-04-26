@@ -7,6 +7,11 @@ return {
 		{ "<leader>nt",":NvimTreeToggle<cr>" }
 	},
 	config = function()
-		require("nvim-tree").setup {}
+		require("nvim-tree").setup {
+			view = {
+				side = 'right',
+				width = 50,
+			}
+		}
 	end,
 }
