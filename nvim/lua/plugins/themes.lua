@@ -1,6 +1,27 @@
 return {
   -- Kanagawa Theme
-  'rebelot/kanagawa.nvim',
+  {
+    'rebelot/kanagawa.nvim',
+    config = function ()
+      require('kanagawa').setup({
+        keywordStyle = { italic = false },
+        statementStyle = { bold = true },
+
+        colors = {
+          theme = {
+            dragon = {
+              ui ={
+                bg = '#0a0a0a',
+              }
+            }
+          }
+        }
+      })
+    end
+  },
+
+  -- Gruvbox Theme
+  'morhetz/gruvbox',
 
   -- TokyoNight Theme
   {
