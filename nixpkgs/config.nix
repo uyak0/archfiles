@@ -4,7 +4,8 @@
     myPackages = pkgs.buildEnv {
       name = "my-packages";
       paths = [
-	vimPlugins.nvim-jdtls
+	rustup
+	jdt-language-server
       	nodejs_21
 	php
 	neovim
@@ -12,7 +13,10 @@
 	php83Packages.composer
 	ripgrep
 	ripgrep-all
+	clang
 	zulu
+	libclang
+	opencv
       ];
       pathsToLink = [ "/share" "/bin" ];
     };
