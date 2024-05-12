@@ -3,17 +3,17 @@
     "position": "top",
     "spacing": 0,
     "height": 34,
-    "margin": 5,
+    "margin": 0,
     "fixed-center": true,
     "modules-left": [
         "custom/logo",
         "hyprland/workspaces",
-        "hyprland/window"
+        "hyprland/window",
+        "custom/spotify",
     ],
     "modules-center": [
         "custom/youtube-music",
         "clock",
-        "custom/spotify"
     ],
     "modules-right": [
         "tray",
@@ -22,19 +22,19 @@
         "pulseaudio",
         "battery",
         "custom/notification",
+	"custom/power",
     ],
     "hyprland/window": {
         "format": "{initialTitle}",  
         "max-length": 25,
         "separate-outputs": true,
         "rewrite": {
-            "(.*) - Brave": "  Brave Browser",
-            "Visual Studio Code": "󰨞  Visual Studio Code",
-            "cookie-electron": "󰆘  Cookie Clicker",
-            "zsh": "  Terminal (zsh)",
-            "Volume Control": "󰕾  Volume Control",
-            "": "  Empty",
-            "Loading...": "󰉖  Nautilus"
+            "(.*) - Brave": "  Brave",
+            "zsh": "  Terminal",
+            "Volume Control": "󰕾 Volume Control",
+            "": "  Empty",
+            "Loading...": "󰉖  File Manager",
+	    "Mozilla Firefox": "󰈹 Firefox",
         }
     },
     "wlr/taskbar": {
@@ -72,8 +72,8 @@
     },
     "memory": {
         "interval": 5,
-        "format": "󰍛 {}%",
-        "max-length": 10
+        "format": "󰍛 {used}GB / {total}GB",
+        "max-length": 20 
     },
     "tray": {
         "icon-size": 20,
@@ -109,8 +109,7 @@
             "headphone": "",
             "default": ["󰖀","󰕾",""]
         },
-        "on-click": "pamixer -t",
-	    "on-click-right": "pavucontrol",
+        "on-click": "~/.config/waybar/scripts/pavucontrol.sh",
         "scroll-step": 1
     },
     "custom/logo": {
@@ -179,7 +178,8 @@
         "escape": true
     },
     "custom/spotify": {
-        "format": "{} ",
+        "max-length": 45,
+        "format": "  {}",
         "exec": "~/.config/waybar/scripts/spotify.sh",
         "return-type": "json",
         "on-click": "hyprctl --batch 'dispatch exec spotify ; dispatch togglespecialworkspace spotify'",
