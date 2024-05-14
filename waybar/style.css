@@ -20,52 +20,48 @@ window#waybar.hidden {
 
 /* MODULE GROUPS */
 .modules-center {
-  background: #181825;
-  border-radius: 0px 0px 100px 100px;
+  background: transparent;
+  border-radius: 0px 0px 50px 50px;
   padding: 0px 25px;
 }
 
-.modules-left,
-.modules-right {
+.modules-left {
   background-color:#181825;
+  padding-right: 5px;
+  border-radius: 0px 5px 5px 0px;
 }
 
-.modules-left {
-  padding-right: 25px;
-  border-radius: 0px 0px 50px 0px;
-}
 .modules-right {
-  padding-left: 25px;
-  padding-right: 10px;
-  border-radius: 0px 0px 0px 50px; 
+  background-color:#181825;
+  border-radius: 5px 0px 0px 5px;
+  padding-left: 5px;
 }
 /* ---------- */
 
 #workspaces {
   background-color: transparent;
+  padding-right: 10px;
 }
 
 #workspaces button {
   all: initial; /* Remove GTK theme values (waybar #1351) */
   min-width: 0; /* Fix weird spacing in materia (waybar #450) */
   box-shadow: inset 0 -3px transparent; /* Use box-shadow instead of border so the text isn't offset */
-  padding: 6px 18px;
-  margin: 6px 3px;
-  border-radius: 4px;
-  background-color: #002657;
+  padding: 6px 15px;
+  background-color: transparent;
   color: #cdd6f4;
 }
 
 #workspaces button.active {
-  color: #1e1e2e;
-  background-color: #cdd6f4;
+  font-weight: 900;
+  text-shadow: 0px 0px 3px #f9e2af;
 }
 
 #workspaces button:hover {
  box-shadow: inherit;
- text-shadow: inherit;
- color: #1e1e2e;
- background-color: #cdd6f4;
+ background-color: #1e1e2e;
+
+ transition-duration: 0.5s;
 }
 
 #workspaces button.urgent {
@@ -81,25 +77,20 @@ window#waybar.hidden {
 #custom-notification,
 #custom-spotify,
 .custom-youtube,
+#custom-arrow,
 #window,
 #tray {
   border-radius: 4px;
   margin: 6px 2px;
   padding: 6px 12px;
-  background-color: #1e1e2e;
-  color: #181825;
 }
 
 #tray {
-  background-color: transparent;
-}
-
-#clock {
-  margin-top: 1px;
+  background-color: #1e1e2e;
 }
 
 #window {
-  background: #1a3c68;
+  background-color: #1e1e2e;
   color:#94e2d5;
   border-radius: 5px;
 }
@@ -150,26 +141,29 @@ window#waybar.hidden {
 }
 
 #pulseaudio {
-  background-color: transparent;
-  border-left: #94e2d5;
+  margin-left: 0;
+  padding-right: 13px;
   color: #94e2d5;
+  background-color: #1e1e2e;
+  border-radius: 0px 4px 4px 0px;
 }
-
 #network {
-  background-color: transparent;
-  border-left: #94e2d5;
+  margin-right: 0;
   color: #94e2d5;
-  padding-right: 17px;
+  background-color: #1e1e2e;
+  border-radius: 4px 0px 0px 4px;
 }
 
 #clock {
   font-family: JetBrainsMono Nerd Font;
   font-weight: 900;
-  background: transparent;
-  color:#94e2d5;
+  color: #94e2d5;
+  background-color: #1e1e2e;
 }
 
 #custom-power {
+  background-color: #181825;
+  padding: 0 15px;
   font-size: larger;
   font-weight: bold;
   color: #ff4545;
@@ -195,13 +189,20 @@ window#waybar.hidden {
   }
 }
 
+#custom-arrow {
+  color: #94e2d5;
+  font-family: FiraCode Nerd Font;
+  font-weight: 900;
+  background: transparent;
+}
+
 #custom-notification {
   background-color: #a6e3a1;
   margin-right: 25px;
 }
 
 #custom-spotify {
-  background-color: transparent;
+  background-color: #1e1e2e;
   padding-right: 20px;
   color:#cdd6f4;
   border-radius: 5px;

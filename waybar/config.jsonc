@@ -1,32 +1,73 @@
 {
     "layer": "top",
     "position": "top",
-    "spacing": 0,
-    "height": 34,
-    "margin": 0,
-    "fixed-center": true,
+    "margin-top": 6,
+
     "modules-left": [
         "custom/logo",
         "hyprland/workspaces",
-        "hyprland/window",
+        "group/misc",
         "custom/spotify",
-    ],
-    "modules-center": [
-        "custom/youtube-music",
         "clock",
     ],
-    "modules-right": [
-        "tray",
-        "memory",
-        "network",
-        "pulseaudio",
-        "battery",
-        "custom/notification",
-	"custom/power",
-    ],
+
+    "group/misc": {
+        "orientation": "inherit",
+        "modules": [
+            "custom/arrow",
+            "tray",
+            "network",
+            "pulseaudio",
+        ],
+        "drawer": {
+            "transition-duration": 500,
+            "transition-left-to-right": false,
+        },
+    },
+
+    "group/group-power": {
+        "orientation": "horizontal",
+        "drawer": {
+            "transition-duration": 500,
+            "children-class": "not-power",
+            "transition-left-to-right": false,
+        },
+        "modules": [
+            "custom/power", // First element is the "group leader" and won't ever be hidden
+            "custom/quit",
+            "custom/lock",
+            "custom/reboot",
+        ]
+    },
+    "custom/quit": {
+        "format": "󰗼",
+        "tooltip": false,
+        "on-click": "hyprctl dispatch exit"
+    },
+    "custom/lock": {
+        "format": "󰍁",
+        "tooltip": false,
+        "on-click": "swaylock"
+    },
+    "custom/reboot": {
+        "format": "󰜉",
+        "tooltip": false,
+        "on-click": "reboot"
+    },
+    "custom/power": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "shutdown now"
+    },
+
+    "custom/arrow": {
+        "format": ">",
+        "tooltip": false,
+    },
+
     "hyprland/window": {
         "format": "{initialTitle}",  
-        "max-length": 25,
+        "max-length": 50,
         "separate-outputs": true,
         "rewrite": {
             "(.*) - Brave": "  Brave",
@@ -50,19 +91,17 @@
         "format": "{icon}",
         "format-icons": {
             "default": "",
-            "1": "1",
-            "2": "2",
-            "3": "3",
-            "4": "4",
-            "5": "5",
-            "6": "6",
-            "7": "7",
-            "8": "8",
-            "9": "9",
-            "active": "󱓻",
-            "urgent": "󱓻"
+            "1": "零",
+            "2": "一",
+            "3": "二",
+            "4": "三",
+            "5": "四",
+            "6": "五",
+            "7": "六",
+            "8": "七",
+            "9": "八",
         },
-        "persistent_workspaces": {
+        "persistent-workspaces": {
             "1": [],
             "2": [],
             "3": [],
@@ -82,7 +121,7 @@
     "clock": {
         "tooltip-format": "<tt>{calendar}</tt>",
         "format-alt": "  {:%a, %d %b %Y}",
-        "format": "  {:%I:%M %p}",
+        "format": "  {:%H:%M}",
     	"timezone" : ""
 	},
     "network": {
@@ -114,7 +153,7 @@
     },
     "custom/logo": {
         "format": "  ",
-        "tooltip": false
+        "on-click": "~/.config/waybar/scripts/launcher.sh",
     },
     "battery": {
         "format": "{capacity}% {icon}",
@@ -152,11 +191,6 @@
         },
         "tooltip": false
     },
-    "custom/power": {
-        "format": "󰤆",
-        "tooltip": false,
-        "on-click": "~/.config/rofi/powermenu/type-2/powermenu.sh &"
-    },
     "custom/notification": {
         "tooltip": false,
         "format": "{} {icon}",
@@ -178,7 +212,6 @@
         "escape": true
     },
     "custom/spotify": {
-        "max-length": 45,
         "format": "  {}",
         "exec": "~/.config/waybar/scripts/spotify.sh",
         "return-type": "json",
