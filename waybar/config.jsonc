@@ -9,6 +9,7 @@
         "group/misc",
         "custom/spotify",
         "clock",
+        "custom/notification",
     ],
 
     "group/misc": {
@@ -90,18 +91,19 @@
         "on-click": "activate",
         "format": "{icon}",
         "format-icons": {
-            "default": "",
-            "1": "零",
-            "2": "一",
-            "3": "二",
-            "4": "三",
-            "5": "四",
-            "6": "五",
-            "7": "六",
-            "8": "七",
-            "9": "八",
+            "default": "零",
+            "1": "一",
+            "2": "二",
+            "3": "三",
+            "4": "四",
+            "5": "五",
+            "6": "六",
+            "7": "七",
+            "8": "八",
+            "9": "九",
         },
         "persistent-workspaces": {
+            "0": [],
             "1": [],
             "2": [],
             "3": [],
@@ -193,7 +195,7 @@
     },
     "custom/notification": {
         "tooltip": false,
-        "format": "{} {icon}",
+        "format": "{icon} {}",
         "format-icons": {
           "notification": "<span foreground='red'><sup></sup></span>",
           "none": "",
@@ -216,6 +218,7 @@
         "exec": "~/.config/waybar/scripts/spotify.sh",
         "return-type": "json",
         "on-click": "hyprctl --batch 'dispatch exec spotify ; dispatch togglespecialworkspace spotify'",
+        "on-click-right": "playerctl -p spotify play-pause",
         "on-scroll-up": "playerctl -p spotify next",
         "on-scroll-down": "playerctl -p spotify previous"
     },

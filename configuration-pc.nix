@@ -15,6 +15,27 @@ in
     <home-manager/nixos>
   ];
 
+  # Fonts 
+  fonts = {
+    packages = with pkgs; [
+      # Nerd Fonts
+      (nerdfonts.override { fonts = [
+	"FiraCode"
+	"JetBrainsMono"
+      ]; })
+
+      noto-fonts
+      noto-fonts-cjk
+      noto-fonts-emoji
+      liberation_ttf
+      fira-code
+      fira-code-symbols
+      mplus-outline-fonts.githubRelease
+      dina-font
+      proggyfonts
+    ];
+  };
+
   i18n = {
     # Select internationalisation properties.
     defaultLocale = "en_US.UTF-8";
@@ -41,22 +62,29 @@ in
     };
   };
 
-  # Hyprland
-  programs.hyprland = {
-    # Install the packages from nixpkgs
-    enable = true;
-    # Whether to enable XWayland
-    xwayland.enable = true;
-    # https://wiki.hyprland.org/0.32.1/Nix/Options-Overrides/#nvidia-patches
-    enableNvidiaPatches = true; 
-  }; 
-  security.polkit.enable = true;
+  programs = {
+    # Hyprland
+    hyprland = {
+      enable = true;
+      xwayland.enable = true;
+      # https://wiki.hyprland.org/0.32.1/Nix/Options-Overrides/#nvidia-patches
+      enableNvidiaPatches = true; 
+    }; 
+    # Waybar
+    waybar.enable = true;
 
-  # Enable the KDE Connect service
-  programs.kdeconnect = {
-    package = pkgs.libsForQt5.kdeconnect-kde;
-    enable = true;
+    # Enable the KDE Connect service
+    kdeconnect = {
+      package = pkgs.libsForQt5.kdeconnect-kde;
+      enable = true;
+    };
   };
+
+  # Critical component for Hyprland according to https://nixos.wiki/wiki/Hyprland#Installation
+  security.polkit.enable = true;    
+
+  # XDG Portal for Screen Sharing
+  xdg.portal.enable = true;
 
   # Home Manager
   home-manager.users.uyako= {
@@ -109,7 +137,6 @@ in
     ];
   };
 
-
   # Allow unfree software
   nixpkgs.config.allowUnfree = true;
 
@@ -161,15 +188,7 @@ in
   # $ nix search wget
   environment.systemPackages = with pkgs; [
 
-    # Fonts
-    (nerdfonts.override { fonts = [
-      "FiraCode"
-      "JetBrainsMono"
-    ]; })
-
-
     # Hyprland Essentials
-    waybar
     hyprpaper
     gnome.adwaita-icon-theme
 
@@ -196,14 +215,12 @@ in
     python3
     wget
 
+    # Editors
     vim 
     neovim
 
-    # Screen Sharing
-    xdg-desktop-portal-wlr
-    unstable.xwaylandvideobridge
-
     # Utilities
+    unstable.xwaylandvideobridge
     neofetch
     btop
     unzip
@@ -214,7 +231,6 @@ in
     pavucontrol
     rofi
     swaynotificationcenter
-    libsForQt5.kdeconnect-kde
 
     linuxKernel.packages.linux_libre.v4l2loopback
   ];

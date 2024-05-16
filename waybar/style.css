@@ -197,8 +197,8 @@ window#waybar.hidden {
 }
 
 #custom-notification {
-  background-color: #a6e3a1;
-  margin-right: 25px;
+  color: #f9e2af;
+  background-color: #1e1e2e;
 }
 
 #custom-spotify {
