@@ -44,7 +44,7 @@ require('lazy').setup({
   require('plugins.markdown'),
   require('plugins.colorizer'),
   require('plugins.themes'),
-  require('plugins.nvim-tree'),
+  -- require('plugins.nvim-tree'),
   require('plugins.laravel-nvim'),
   require('plugins.lualine'),
   require('plugins.no-setup-plugins'),
@@ -56,6 +56,7 @@ require('lazy').setup({
   require('plugins.nvim-treesitter'),
   require('plugins.copilot'),
   require('plugins.autotag'),
+  require('plugins.oil'),
   require('keybindings'),
 
 }, {})

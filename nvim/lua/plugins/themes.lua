@@ -5,7 +5,7 @@ return {
     config = function ()
       require('kanagawa').setup({
         keywordStyle = { italic = false },
-        statementStyle = { bold = true },
+        statementStyle = { bold = false },
 
         colors = {
           theme = {
