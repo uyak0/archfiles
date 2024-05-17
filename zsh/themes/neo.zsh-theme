@@ -1,4 +1,4 @@
-PS1='%B[ %n]%b %{$fg[yellow]%}[  %~] %{$fg[cyan]%}$(git_repo_exists)
+PS1='%B[󰄛 %n]%b %{$fg[yellow]%}[  %~] %{$fg[cyan]%}$(git_repo_exists)
 %{$reset_color%} '
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[green]%}"

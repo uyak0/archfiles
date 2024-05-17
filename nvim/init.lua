@@ -341,31 +341,6 @@ require('which-key').register({
   ['<leader>h'] = { 'Git [H]unk' },
 }, { mode = 'v' })
 
--- Mason.nvim setup
-require('mason').setup()
-require('mason-lspconfig').setup()
-
--- Server Lists
-local servers = {
-  clangd = {},
-  rust_analyzer = {},
-  tsserver = {},
-  phpactor = {},
-  eslint = {},
-  volar = {
-    filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json'},
-  },
-
-  lua_ls = {
-    Lua = {
-      workspace = { checkThirdParty = false },
-      telemetry = { enable = false },
-      -- NOTE: toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-      -- diagnostics = { disable = { 'missing-fields' } },
-    },
-  },
-}
-
 -- Setup neovim lua configuration
 require('neodev').setup()
 
@@ -373,56 +348,16 @@ require('neodev').setup()
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
--- Ensure the servers above are installed
-local mason_lspconfig = require 'mason-lspconfig'
-
-mason_lspconfig.setup {
-  ensure_installed = vim.tbl_keys(servers),
+-- LSP servers
+local lspconfig = require('lspconfig')
+lspconfig.tsserver.setup {}
+lspconfig.volar.setup {
+  filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json'}
 }
-
-mason_lspconfig.setup_handlers {
-  function(server_name)
-    local lspconfig = require('lspconfig')
-    if server_name == 'volar' then
-      lspconfig.tsserver.setup {
-        init_options = {
-          plugins = {
-            {
-              name = '@vue/typescript-plugin',
-              location = '/path/to/@vue/language-server',
-              languages = { 'vue' },
-            },
-          },
-        },
-      }
-      lspconfig.volar.setup {
-        init_options = {
-          vue = {
-            hybridMode = false,
-          },
-        },
-      }
-
-    elseif server_name == 'clangd' then
-      lspconfig.clangd.setup {
-        cmd = { '/run/current-system/sw/bin/clangd' }
-      }
-
-    elseif server_name == 'rust_analyzer' then
-      lspconfig.rust_analyzer.setup {
-        cmd = { '/run/current-system/sw/bin/rust-analyzer' },
-      }
-
-    else
-      lspconfig[server_name].setup {
-        capabilities = capabilities,
-        on_attach = on_attach,
-        settings = servers[server_name],
-        filetypes = (servers[server_name] or {}).filetypes,
-      }
-    end
-  end
-}
+lspconfig.clangd.setup {}
+lspconfig.rust_analyzer.setup {}
+lspconfig.nil_ls.setup {}
+lspconfig.lua_ls.setup {}
 
 -- [[ Configure nvim-cmp ]]
 -- See `:help cmp`
