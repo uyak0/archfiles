@@ -18,6 +18,8 @@ return {
       end,
     },
   },
+
+  -- Telescope Settings
   config = function()
     require('telescope').setup {
       defaults = {
@@ -30,7 +32,8 @@ return {
       },
       pickers = {
         find_files = {
-          hidden = true
+          hidden = true,
+          no_ignore = true
         }
       },
     }
