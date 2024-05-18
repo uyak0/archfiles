@@ -67,6 +67,9 @@ in
     }; 
     # Waybar
     waybar.enable = true;
+
+    # Enable zsh
+    zsh.enable = true;
   };
 
   # Home Manager
@@ -92,6 +95,7 @@ in
       shellAliases = {
 	nixconf = "sudo -E nvim /etc/nixos/configuration.nix";
 	nixbuild = "sudo nixos-rebuild switch";
+	nixsync = "cp /etc/nixos/configuration.nix ~/dotfiles/configuration-laptop.nix";
 	nix-upgrade = "sudo nixos-rebuild switch --upgrade";
 	vi = "nvim";
 	ls = "eza";
@@ -152,11 +156,15 @@ in
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.uyako = {
-    isNormalUser = true;
-    description = "bryn";
-    extraGroups = [ "networkmanager" "wheel" ];
+  # Define a user account. 
+  users = {
+    users.uyako = {
+      isNormalUser = true;
+      description = "bryn";
+      extraGroups = [ "networkmanager" "wheel" ];
+    };
+    # Set zsh as default shell
+    defaultUserShell = pkgs.zsh;
   };
 
   # List packages installed in system profile. To search, run:
