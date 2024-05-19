@@ -1,54 +1,40 @@
--- For Hyprlang 
-vim.filetype.add({
-  pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },
-})
+local opt = vim.opt
+local wo = vim.wo
+local o = vim.o
+local g = vim.g
 
--- Disable Netrw in favor of nvimTree
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
+-- Enable Treesitter/LSP For Hyprlang 
+vim.filetype.add({ pattern = { [".*/hypr/.*%.conf"] = "hyprlang" } })
 
--- setting block cursor for insert mode
-vim.opt.guicursor = "n-v-c-i:block,i:block-blinkwait175-blinkoff150-blinkon175"
+opt.tabstop = 4                 -- Default Tabstop
+-- setting block cursor for all mode
+opt.guicursor = "n-v-c-i:block,i:block-blinkwait175-blinkoff150-blinkon175"
 
--- Enable Relative Line Numbers 
-vim.wo.relativenumber = true
+wo.relativenumber = true        -- Enable Relative Line Numbers 
+wo.cursorline = true            -- Highlight current line
+wo.number = true                -- Make line numbers default
+wo.signcolumn = 'yes'           -- Keep signcolumn on by default
 
--- Highlight current line
-vim.wo.cursorline = true
-
--- Set highlight on search
-vim.o.hlsearch = false
-
--- Make line numbers default
-vim.wo.number = true
-
--- Enable mouse mode
-vim.o.mouse = 'a'
-
--- Sync clipboard between OS and Neovim.
---  Remove this option if you want your OS clipboard to remain independent.
---  See `:help 'clipboard'`
-vim.o.clipboard = 'unnamedplus'
-
--- Enable break indent
-vim.o.breakindent = true
-
--- Save undo history
-vim.o.undofile = true
+o.hlsearch = false              -- Set highlight on search
+o.mouse = 'a'                   -- Enable mouse mode
+o.clipboard = 'unnamedplus'     -- Sync clipboard between OS and Neovim.
+o.breakindent = true            -- Enable break indent
+o.undofile = true               -- Save undo history
 
 -- Case-insensitive searching UNLESS \C or capital in search
-vim.o.ignorecase = true
-vim.o.smartcase = true
-
--- Keep signcolumn on by default
-vim.wo.signcolumn = 'yes'
+o.ignorecase = true
+o.smartcase = true
 
 -- Decrease update time
-vim.o.updatetime = 250
-vim.o.timeoutlen = 300
+o.updatetime = 250
+o.timeoutlen = 300
 
 -- Set completeopt to have a better completion experience
-vim.o.completeopt = 'menuone,noselect'
+o.completeopt = 'menuone,noselect'
 
 -- NOTE: You should make sure your terminal supports this
-vim.o.termguicolors = true
+o.termguicolors = true
+
+-- Disable Netrw in favor of nvimTree
+g.loaded_netrw = 1
+g.loaded_netrwPlugin = 1

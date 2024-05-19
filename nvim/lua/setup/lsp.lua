@@ -14,12 +14,13 @@ local on_attach = function(_, bufnr)
     vim.lsp.buf.code_action { context = { only = { 'quickfix', 'refactor', 'source' } } }
   end, '[C]ode [A]ction')
 
-  nmap('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
-  nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
-  nmap('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
-  nmap('<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
-  nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
-  nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
+  local builtin = require('telescope.builtin')
+  nmap('gd', builtin.lsp_definitions, '[G]oto [D]efinition')
+  nmap('gr', builtin.lsp_references, '[G]oto [R]eferences')
+  nmap('gI', builtin.lsp_implementations, '[G]oto [I]mplementation')
+  nmap('<leader>D', builtin.lsp_type_definitions, 'Type [D]efinition')
+  nmap('<leader>ds', builtin.lsp_document_symbols, '[D]ocument [S]ymbols')
+  nmap('<leader>ws', builtin.lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
 
   -- See `:help K` for why this keymap
   nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
@@ -44,7 +45,6 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 -- LSP server list
-local lspconfig = require('lspconfig')
 local server_list = {
   tsserver = {},
   volar = {},
@@ -54,8 +54,9 @@ local server_list = {
   lua_ls = {},
 }
 
+-- setup each server with on_attach and capabilities
 for server in pairs(server_list) do
-  lspconfig[server].setup {
+  require('lspconfig')[server].setup {
     on_attach = on_attach,
     capabilities = capabilities,
   }
