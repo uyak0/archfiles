@@ -9,13 +9,7 @@ dotfiles and a bash script for easier setup of my personal linux environment
 - **Application Launcher:** [wofi](https://sr.ht/~scoopta/wofi/)/[rofi](https://github.com/davatorium/rofi)
 
 # Installation
-Run these commands:
-```
-git clone https://github.com/uyak0/dotfiles
-cd dotfiles
-chmod +x installation.sh
-./installation.sh
-``` 
+For now, everything must be done manually
 
 # Notes
 - all shortctus are available in `hypr/hpyrland.conf`
