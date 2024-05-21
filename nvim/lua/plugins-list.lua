@@ -16,5 +16,6 @@ require('lazy').setup({
   require('plugins.nvim-treesitter'),
   require('plugins.copilot'),
   require('plugins.autotag'),
+  require('plugins.outline'),
 
 }, {})

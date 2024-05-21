@@ -6,7 +6,7 @@
     "modules-left": [
         "custom/logo",
         "hyprland/workspaces",
-        "group/misc",
+        "network", "pulseaudio",
         "custom/spotify",
         "clock",
         "custom/notification",
@@ -16,7 +16,6 @@
         "orientation": "inherit",
         "modules": [
             "custom/arrow",
-            "tray",
             "network",
             "pulseaudio",
         ],
