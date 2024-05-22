@@ -2,6 +2,8 @@ return {
   -- Surround.vim
   'tpope/vim-surround',
 
+  'godlygeek/tabular',
+
   -- Auto pair
   -- {
   --   'windwp/nvim-autopairs',
