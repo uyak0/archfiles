@@ -90,8 +90,8 @@ window#waybar.hidden {
 }
 
 #window {
-  background: transparent;
-  color:#94e2d5;
+  border-bottom:#f9e2af groove 1px;
+  color:#f9e2af;
 }
 
 #custom-logo {
@@ -132,7 +132,7 @@ window#waybar.hidden {
   animation-direction: alternate;
 }
 #battery.charging {
-  background-color: transparent;
+  background-color: #a6e3a1;
 }
 
 #backlight {
