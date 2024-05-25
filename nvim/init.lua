@@ -24,6 +24,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
 
+require('setup.comment-nvim')       -- Configure Comment.nvim
 require('setup.nvim-treesitter')    -- Configure Treesitter
 
 require('neodev').setup()           -- Setup neovim lua configuration
