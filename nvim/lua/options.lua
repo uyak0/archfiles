@@ -1,10 +1,12 @@
-local opt = vim.opt
-local wo = vim.wo
-local o = vim.o
+local bo = vim.bo
+local ft = vim.filetype
 local g = vim.g
+local opt = vim.opt
+local o = vim.o
+local wo = vim.wo
 
 -- Enable Treesitter/LSP For Hyprlang 
-vim.filetype.add({ pattern = { [".*/hypr/.*%.conf"] = "hyprlang" } })
+ft.add({ pattern = {  [ ".*/hypr/.*%.conf" ] = "hyprlang" } })
 
 opt.tabstop = 4                 -- Default Tabstop
 -- setting block cursor for all mode

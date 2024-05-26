@@ -3,8 +3,7 @@ local map = vim.keymap.set
 -- Align markdown tables
 map('n', '<leader>tt', '<cmd>Tab/|<cr>', { desc = 'Align markdown table' })
 
--- Obsidian 
--- Paste Image
+-- Obsidian
 map('n', '<leader>pi', '<cmd>ObsidianPasteImg<cr>', { desc = 'Paste image from clipboard (Obsidian)' })
 map('n', '<leader>po', '<cmd>ObsidianOpen<cr>', { desc = 'Open Obsidian' })
 

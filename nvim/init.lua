@@ -24,13 +24,14 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
 
-require('setup.comment-nvim')       -- Configure Comment.nvim
-require('setup.nvim-treesitter')    -- Configure Treesitter
+require('setup.nvim-treesitter')     -- Configure Treesitter
+require('Comment.ft')
+  .set('hyprlang', '#%s')            -- Add commentstring to hyprlang
 
-require('neodev').setup()           -- Setup neovim lua configuration
-                                    -- Must happen before lspconfig setup (I think? Wouldn't work otherwise)
-require('setup.lsp')                -- Setup LSP
-require('setup.which-key')          -- document existing key chains
+require('neodev').setup()            -- Setup neovim lua configuration
+                                     -- Must happen before lspconfig setup (I think? Wouldn't work otherwise)
+require('setup.lsp')                 -- Setup LSP
+require('setup.which-key')           -- document existing key chains
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
