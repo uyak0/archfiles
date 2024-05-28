@@ -29,6 +29,7 @@
 	ls = "eza";
 	lg = "lazygit";
 	hyprconf = "nvim ~/.config/hypr/hyprland.conf";
+	nixsync = "cp /etc/nixos/*.nix ~/dotfiles/nixos-pc/";
       };
     };
 
@@ -36,6 +37,11 @@
       enable = true;
       userName  = "uyak0";
       userEmail = "milkycoffeethings@gmail.com";
+      extraConfig = {
+	pull = {
+	  rebase = true;
+	};
+      };
     };
 
     home.pointerCursor ={

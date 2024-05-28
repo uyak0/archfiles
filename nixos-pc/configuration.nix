@@ -51,6 +51,7 @@ in
 
   # Set your time zone.
   time.timeZone = "Asia/Kuala_Lumpur";
+  time.hardwareClockInLocalTime = true;     # For Dual Booting with Windows
 
   # Enable sound 
   sound.enable = true;
@@ -101,6 +102,7 @@ in
     playerctl
     pavucontrol
     rofi
+    ripgrep
     swaynotificationcenter
 
     linuxKernel.packages.linux_libre.v4l2loopback
