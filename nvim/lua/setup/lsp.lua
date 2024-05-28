@@ -3,6 +3,7 @@
 local server_list = {
   tsserver       = {}, volar   = {}, clangd  = {},
   rust_analyzer  = {}, nil_ls  = {}, lua_ls  = {},
+  bashls         = {},
 }
 
 --  This function gets run when an LSP connects to a particular buffer.
