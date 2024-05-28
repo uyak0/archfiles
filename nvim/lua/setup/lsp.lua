@@ -1,4 +1,10 @@
 -- [[ Configure LSP ]]
+-- LSP server list
+local server_list = {
+  tsserver       = {}, volar   = {}, clangd  = {},
+  rust_analyzer  = {}, nil_ls  = {}, lua_ls  = {},
+}
+
 --  This function gets run when an LSP connects to a particular buffer.
 local on_attach = function(_, bufnr)
   local nmap = function(keys, func, desc)
@@ -43,16 +49,6 @@ end
 -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
-
--- LSP server list
-local server_list = {
-  tsserver = {},
-  volar = {},
-  clangd = {},
-  rust_analyzer = {},
-  nil_ls = {},
-  lua_ls = {},
-}
 
 -- setup each server with on_attach and capabilities
 for server in pairs(server_list) do
