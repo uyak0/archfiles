@@ -1,5 +1,5 @@
-# archfiles
-dotfiles and a bash script for easier setup of my personal linux environment
+# Dotfiles
+dotfiles for backups of my personal linux environment
 
 # Dependencies
 - **DE:** [Hyprland](https://github.com/hyprwm/Hyprland)
