@@ -4,10 +4,10 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
-require('setup.lazy-nvim')                -- Install Lazy.nvim
-require('plugins-list')                   -- Plugins
-require('options')                        -- Import all vim options
-require('mappings')                       -- keymappings 
+require('setup.lazy-nvim')     -- Install Lazy.nvim
+require('utils.plugins-list')  -- Plugins
+require('utils.options')       -- Import all vim options
+require('utils.mappings')      -- keymappings
 
 vim.cmd[[colorscheme kanagawa-dragon]]    -- Load theme
 
@@ -25,6 +25,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 pcall(require('telescope').load_extension, 'fzf')
 
 require('setup.nvim-treesitter')     -- Configure Treesitter
+
 require('Comment.ft')
   .set('hyprlang', '#%s')            -- Add commentstring to hyprlang
 

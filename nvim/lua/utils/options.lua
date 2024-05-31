@@ -10,8 +10,7 @@ ft.add({ pattern = {  [ ".*/hypr/.*%.conf" ] = "hyprlang" } })
 
 opt.tabstop = 4                 -- Default Tabstop
 -- setting block cursor for all mode
-opt.guicursor = "n-v-c-i:block,i:block-blinkwait175-blinkoff150-blinkon175"
-opt.conceallevel = 1
+opt.guicursor = "n-v-c-i:block,i:block-blinkwait175-blinkoff150-blinkon175";
 
 wo.relativenumber = true        -- Enable Relative Line Numbers 
 wo.cursorline = true            -- Highlight current line

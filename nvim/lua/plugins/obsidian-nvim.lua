@@ -20,6 +20,8 @@ return {
     "nvim-treesitter/nvim-treesitter",
   },
   opts = {
+    disable_frontmatter = true,
+    ui = { enable = false, },
     workspaces = {
       {
         name = "personal",
@@ -32,5 +34,6 @@ return {
     attachments = {
       img_folder = "Attachments/image",
     },
+    disable_frontmatter = true,
   },
 }
