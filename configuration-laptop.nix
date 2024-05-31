@@ -92,7 +92,9 @@ in
 	];
       };
 
+
       shellAliases = {
+	todo = "~/dotfiles/bash-scripts/todo.sh";
 	nixconf = "sudo -E nvim /etc/nixos/configuration.nix";
 	nixbuild = "sudo nixos-rebuild switch";
 	nixsync = "cp /etc/nixos/configuration.nix ~/dotfiles/configuration-laptop.nix";
@@ -178,12 +180,12 @@ in
     # Apps
     firefox-devedition
     unstable.obsidian
-    discord
     brave
-    spotify
     kitty
+    logseq
 
     # Development
+    rustup
     git
     lazygit
     libgccjit
@@ -216,9 +218,15 @@ in
     rofi
     ripgrep
 
-
     # Language Servers
     jdt-language-server
+    lua-language-server
+    nil
+    nodePackages_latest.volar
+    nodePackages_latest.typescript-language-server
+    typescript
+    rust-analyzer
+    vscode-langservers-extracted
   ];
 
   # List of services
