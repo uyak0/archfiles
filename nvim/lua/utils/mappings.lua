@@ -5,7 +5,8 @@ map('n', '<leader>tt', '<cmd>Tab/|<cr>', { desc = 'Align markdown table' })
 
 -- Obsidian
 map('n', '<leader>pi', '<cmd>ObsidianPasteImg<cr>', { desc = 'Paste image from clipboard (Obsidian)' })
-map('n', '<leader>po', '<cmd>ObsidianOpen<cr>', { desc = 'Open Obsidian' })
+map('n', '<leader>po', '<cmd>ObsidianOpen<cr>', { desc = 'Open current note in Obsidian' })
+map('n', '<leader>pd', '<cmd>ObsidianDailies<cr>', { desc = 'Open daily notes' })
 
 -- Search and replace
 map('n', '<leader>H', ':%s//c<Left><Left>', { desc = 'Search and Replace', silent = true })

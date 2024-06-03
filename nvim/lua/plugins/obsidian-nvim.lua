@@ -29,11 +29,14 @@ return {
       },
     },
     template = {
-      folder = "Assets/Templates",
+      folder = "󰁦 Assets/Templates",
     },
     attachments = {
-      img_folder = "Attachments/image",
+      img_folder = "󰁦 Assets/Images",
     },
-    disable_frontmatter = true,
+    daily_notes = {
+      folder = "󰂺 Journal",
+      template = "daily notes template",
+    },
   },
 }
