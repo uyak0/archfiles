@@ -4,12 +4,12 @@
   # Home Manager
   home-manager.users.uyako= {
     /* The home.stateVersion option does not have a default and must be set */
-    home.stateVersion = "23.11";
+    home.stateVersion = "24.05";
 
     programs.zsh = {
       enable = true;
       enableCompletion = true;
-      enableAutosuggestions = true;
+      autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
 
       oh-my-zsh = {
@@ -30,6 +30,8 @@
 	lg = "lazygit";
 	hyprconf = "nvim ~/.config/hypr/hyprland.conf";
 	nixsync = "cp /etc/nixos/*.nix ~/dotfiles/nixos-pc/";
+	todo = "~/todo.sh";
+	ngram = "~/ngrrram/target/debug/ngrrram";
       };
     };
 

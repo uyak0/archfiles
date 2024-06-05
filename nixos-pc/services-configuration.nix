@@ -7,8 +7,8 @@
       enable = true;
 
       # Configure keymap in X11
-      layout = "us";
-      xkbVariant = "";
+      xkb.layout = "us";
+      xkb.variant = "";
 
       # Load nvidia driver for Xorg and Wayland
       videoDrivers = ["nvidia"];

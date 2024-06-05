@@ -19,6 +19,23 @@ in
     <home-manager/nixos>
   ];
 
+  # Mount drives
+  fileSystems."/mnt/ext-hdd1" = {
+    device = "/dev/sda1";
+    fsType = "ntfs-3g";
+    options = [ "rw" "uid=1000" ];
+  };
+  fileSystems."/mnt/ext-hdd2" = {
+    device = "/dev/sda3";
+    fsType = "ntfs-3g";
+    options = [ "rw" "uid=1000" ];
+  };
+  fileSystems."/mnt/main-ssd" = {
+    device = "/dev/nvme0n1p3";
+    fsType = "ntfs-3g";
+    options = [ "rw" "uid=1000" ];
+  };
+
   # Allow Unfree software
   nixpkgs.config.allowUnfree = true;
 
@@ -81,7 +98,7 @@ in
     gnome.adwaita-icon-theme
 
     # Apps
-    unstable.obsidian
+    obsidian
     discord
     brave
     spotify
@@ -92,7 +109,7 @@ in
     neovim
 
     # Utilities
-    unstable.xwaylandvideobridge
+    xwaylandvideobridge
     neofetch
     btop
     unzip
@@ -101,7 +118,7 @@ in
     wl-clipboard
     playerctl
     pavucontrol
-    rofi
+    rofi-wayland
     ripgrep
     swaynotificationcenter
 

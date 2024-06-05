@@ -19,5 +19,6 @@
 		nodePackages.volar
 		typescript
 		tailwindcss-language-server
+		nodePackages_latest.bash-language-server
 	];
 }

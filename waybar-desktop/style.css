@@ -25,11 +25,11 @@ window#waybar.hidden {
 }
 
 /* MODULE GROUPS */
-.modules-center {
-  background: transparent;
-  border-radius: 0px 0px 50px 50px;
-  padding: 0px 25px;
-}
+/* .modules-center { */
+/*   background: transparent; */
+/*   border-radius: 0px 0px 50px 50px; */
+/*   padding: 0px 25px; */
+/* } */
 
 .modules-left {
   margin-top: 6px;
@@ -38,16 +38,15 @@ window#waybar.hidden {
   border-radius: 0px 5px 5px 0px;
 }
 
-.modules-right {
-  background-color: @bg-color;
-  border-radius: 5px 0px 0px 5px;
-  padding-left: 5px;
-}
+/* .modules-right { */
+/*   background-color: @bg-color; */
+/*   border-radius: 5px 0px 0px 5px; */
+/*   padding-left: 5px; */
+/* } */
 /* ---------- */
 
 #workspaces {
   background-color: transparent;
-  padding-right: 10px;
 }
 
 #workspaces button {

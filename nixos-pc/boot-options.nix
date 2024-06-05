@@ -6,6 +6,7 @@
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
     initrd.systemd.dbus.enable = true;
+    supportedFilesystems = [ "ntfs" ];
 
     # Virtual Camera 
     extraModulePackages = with config.boot.kernelPackages;
