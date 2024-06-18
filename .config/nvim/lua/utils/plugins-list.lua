@@ -3,6 +3,7 @@ require('lazy').setup({
   require('plugins.autotag'),
   require('plugins.colorizer'),
   require('plugins.copilot'),
+  require('plugins.diagflow-nvim'),
   require('plugins.gitsigns'),
   require('plugins.indent-blankline'),
   require('plugins.laravel-nvim'),
