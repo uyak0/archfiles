@@ -1,9 +1,29 @@
 -- [[ Configure LSP ]]
 -- LSP server list
 local server_list = {
-  tsserver       = {}, volar   = {}, clangd  = {},
-  rust_analyzer  = {}, nil_ls  = {}, lua_ls  = {},
-  bashls         = {},
+  tsserver = {
+    init_options = {
+      plugins = {
+        {
+          name = '@vue/typescript-plugin',
+          location = '/home/bryn/.nvm/versions/node/v16.20.2/bin/vue-language-server',
+          languages = { 'vue' },
+        },
+      },
+    }
+  },
+  volar = {
+    init_options = {
+      vue = {
+        hybridMode = false,
+      },
+    },
+  },
+  clangd = {}, rust_analyzer = {}, nil_ls = {}, lua_ls = {}, phpactor = {}, 
+  tailwindcss = {
+    filetypes = { 'vue', 'html', 'css' },
+  },
+  -- vuels = {},
 }
 
 --  This function gets run when an LSP connects to a particular buffer.
@@ -53,7 +73,10 @@ capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 -- setup each server with on_attach and capabilities
 for server in pairs(server_list) do
-  require('lspconfig')[server].setup {
+  local lspconfig = require('lspconfig')
+  lspconfig[server].setup {
+    init_options = server_list[server].init_options,
+    filetypes = server_list[server].filetypes,
     on_attach = on_attach,
     capabilities = capabilities,
   }

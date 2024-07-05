@@ -1,5 +1,10 @@
 return {
 
+  -- Leap.nvim
+  {
+    'ggandor/leap.nvim',
+  },
+
   { -- Surround
     "kylechui/nvim-surround", version = "*", -- Use for stability; omit to use `main` branch for the latest features
     event = "VeryLazy",

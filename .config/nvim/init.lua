@@ -8,6 +8,10 @@ require('setup.lazy-nvim')     -- Install Lazy.nvim
 require('utils.plugins-list')  -- Plugins
 require('utils.options')       -- Import all vim options
 require('utils.mappings')      -- keymappings
+-- require('utils.wsl-clipboard') -- WSL clipboard
+
+-- Leap.nvim
+require('leap').create_default_mappings()
 
 vim.cmd[[colorscheme kanagawa-dragon]]    -- Load theme
 

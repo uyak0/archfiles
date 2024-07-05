@@ -1,6 +1,7 @@
 require('lazy').setup({
 
   require('plugins.autotag'),
+  require('plugins.barbecue-nvim'),
   require('plugins.colorizer'),
   require('plugins.copilot'),
   require('plugins.diagflow-nvim'),
@@ -18,6 +19,7 @@ require('lazy').setup({
   require('plugins.obsidian-nvim'),
   require('plugins.oil'),
   require('plugins.outline'),
+  require('plugins.refactoring'),
   require('plugins.themes'),
 
 }, {})

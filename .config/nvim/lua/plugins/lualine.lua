@@ -61,12 +61,7 @@ return {
     sections = {
       lualine_a = {'mode'},
       lualine_b = {'branch'},
-      lualine_c = {
-        {
-          'filename',
-          path = 3,
-        }
-      },
+      lualine_c = {'filename'},
       lualine_x = {'encoding'},
       lualine_y = {'filetype'},
       lualine_z = {'location'}
