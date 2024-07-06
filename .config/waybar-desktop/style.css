@@ -60,7 +60,7 @@ window#waybar.hidden {
   border-radius: 4px;
 }
 #workspaces button.special {
-  background-color: @btn-color;
+  background-color: transparent; 
   border-radius: 4px;
   margin: 6px 2px;
   padding: 6px 12px;
@@ -86,7 +86,7 @@ window#waybar.hidden {
 #memory, #battery,
 #backlight, #pulseaudio,
 #network, #clock,
-#custom-notification, #custom-spotify,
+#custom-notification, #custom-spotify, #custom-discord,
 .custom-youtube, #custom-arrow,
 #window, #tray {
   background-color: @btn-color;
@@ -96,6 +96,10 @@ window#waybar.hidden {
   padding: 6px 12px;
 }
 /*------------*/
+
+#custom-discord {
+  padding-right: 10px;
+}
 
 #custom-logo {
   padding-right: 7px;
@@ -154,6 +158,7 @@ window#waybar.hidden {
 #network:hover,
 #clock:hover,
 #custom-notification:hover,
+#custom-discord:hover,
 #custom-spotify:hover {
   background-color: @hover-color;
   color: @bg-color;
