@@ -11,7 +11,6 @@
         "clock",
         "custom/notification",
     ],
-    "modules-right": [],
 
     "group/misc": {
         "orientation": "inherit",
@@ -28,6 +27,11 @@
     },
     "custom/arrow": {
         "format": "",
+        "tooltip": false,
+    },
+    "custom/discord": {
+        "on-click": "hyprctl dispatch togglespecialworkspace discord",
+        "format": " ",
         "tooltip": false,
     },
 
@@ -57,6 +61,9 @@
         "show-special": false,
         "format": "{icon}",
         "active-only": true,
+        "ignore-workspaces": [
+            "(special:)?spotify",
+        ],
         "format-icons": {
             "default": "零",
             "1": "壹",
@@ -122,6 +129,7 @@
     "custom/logo": {
         "format": "  ",
         "on-click": "~/.config/waybar/scripts/launcher.sh",
+        "tooltip": false
     },
     "battery": {
         "format": "{capacity}% {icon}",

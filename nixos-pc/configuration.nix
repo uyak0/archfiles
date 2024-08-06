@@ -107,6 +107,7 @@ in
     variety
     vim 
     neovim
+    obs-studio
 
     # Utilities
     xwaylandvideobridge
